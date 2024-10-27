@@ -40,6 +40,18 @@ int main_menu() {
     cout << "[1] Add a goat\n";
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
-    cout << "[1] Add a goat\n";
+    cout << "[4] Quit\n";
+    cout << "Choice --> ";
+    int choice;
+    cin >> choice;
+    while (choice > 4 or choice < 1){
+        cout << "Please enter 1-4: ";
+        cin >> choice;
+    }
+    return choice;
 }
 
+void add_goat(list<Goat> &trip, string [], string []) {
+    string randname = names[rand() % SZ_NAMES];
+    
+}
