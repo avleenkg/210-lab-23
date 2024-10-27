@@ -65,16 +65,31 @@ void display_trip(list<Goat> trip){
         cout << "Trip is empty.\n";
         return;
     }
-    for (int i = 0; ) {
-        cout << "[" << i
+
+    int i = 1;
+    for (auto it = trip.begin(); it != trip.end(); it++) {
+        cout << "[" << i++ << "] " << it->get_name() << " (" << it->get_age() << ", " << it->get_color() << ")\n";
     } 
 }
 
 
 int select_goat(list<Goat> trip){
-
+    display_trip(trip);
+    cout << "Select a goat (enter a #): ";
+    int entry;
+    cin >> entry;
+    while (entry < 1 or entry > trip.size()) {
+        cout << "Please enter a valid number: ";
+        cin >> entry;
+    }
+    return entry;
 }
 
 void delete_goat(list<Goat> &trip){
-
+    if (trip.empty()) {
+        cout << "Trip is empty, no goats to delete.\n";
+        return;
+    }
+    int i = select_goat(trip) - 1;
+    
 }
