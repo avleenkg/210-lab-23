@@ -56,6 +56,25 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
     string randcolor = colors[rand() % SZ_COLORS];
     int randage = rand()% MAX_AGE;
 
-    Goat newgoat(randname, randcolor, randage)
+    Goat newgoat(randname, randage, randcolor);
+    trip.push_back(newgoat);
+}
+
+void display_trip(list<Goat> trip){
+    if (trip.empty()) {
+        cout << "Trip is empty.\n";
+        return;
+    }
+    for (int i = 0; ) {
+        cout << "[" << i
+    } 
+}
+
+
+int select_goat(list<Goat> trip){
+
+}
+
+void delete_goat(list<Goat> &trip){
 
 }
