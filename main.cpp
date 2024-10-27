@@ -51,7 +51,11 @@ int main_menu() {
     return choice;
 }
 
-void add_goat(list<Goat> &trip, string [], string []) {
+void add_goat(list<Goat> &trip, string names[], string colors[]) {
     string randname = names[rand() % SZ_NAMES];
-    
+    string randcolor = colors[rand() % SZ_COLORS];
+    int randage = rand()% MAX_AGE;
+
+    Goat newgoat(randname, randcolor, randage)
+
 }
