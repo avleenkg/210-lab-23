@@ -35,3 +35,11 @@ int main() {
     return 0;
 }
 
+int main_menu() {
+    cout << "*** GOAT MANAGER 3001 ***\n";
+    cout << "[1] Add a goat\n";
+    cout << "[2] Delete a goat\n";
+    cout << "[3] List goats\n";
+    cout << "[1] Add a goat\n";
+}
+
