@@ -15,7 +15,7 @@ int main_menu();
 
 int main() {
     srand(time(0));
-    bool again;
+    bool again =  true;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
@@ -31,25 +31,28 @@ int main() {
 
     list<Goat> trip;
 
-    int user = main_menu();
-    switch (user){
-        case 1:
-            add_goat(trip, names, colors);
-            break;
-        case 2: 
-            delete_goat(trip);
-            break;
-        case 3: 
-            display_trip(trip);
-            break;
-        case 4:
-            cout << "Exiting program.\n";
-            break;
-        default:
-            cout << "Error. Not a valid entry.\n";
-            break;
+    while (again) {
+        int user = main_menu();
+        switch (user){
+            case 1:
+                add_goat(trip, names, colors);
+                break;
+            case 2: 
+                delete_goat(trip);
+                break;
+            case 3: 
+                display_trip(trip);
+                cout << endl;
+                break;
+            case 4:
+                cout << "Exiting program.\n";
+                again = false;
+                break;
+            default:
+                cout << "Error. Not a valid entry.\n";
+                break;
+        }
     }
-
 
     return 0;
 }
@@ -79,6 +82,8 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
     trip.push_back(newgoat);
 
     cout << "Adding goat: " << randname << "(" << randage << ", " << randcolor << ")\n";
+    display_trip(trip);
+    cout << endl << endl;;
 }
 
 void display_trip(list<Goat> trip){
@@ -96,6 +101,7 @@ void display_trip(list<Goat> trip){
 
 int select_goat(list<Goat> trip){
     display_trip(trip);
+    cout << endl;
     cout << "Select a goat (enter a #): ";
     int entry;
     cin >> entry;
@@ -116,4 +122,6 @@ void delete_goat(list<Goat> &trip){
     advance(it, i);
     cout << "Deleting goat: " << it->get_name() << " (" << it->get_age() << ", " << it->get_color() << ")\n";
     trip.erase(it);
+    display_trip(trip);
+    cout << endl << endl;
 }
